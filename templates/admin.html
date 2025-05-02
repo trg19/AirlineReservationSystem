@@ -1,0 +1,90 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+<div class="container my-4">
+    <h1 class="my-4 text-center">Welcome to admin!</h1>
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+        <div class="col">
+            <div class="card shadow-sm">
+                <img src="./static/passanger.png" class="d-block w-100" alt="..." width="200" height="400" />
+                <div class="card-body text-center">
+                    <h4>Passanger Details</h4>
+                    <form class="form-signin w-100 my-3" action="#" method="POST">
+
+                        <!-- Input -->
+                        <div class="form-outline mb-2">
+                            <input type="text" name="flight_no" id="form2Example1" class="form-control"
+                                placeholder="Flight Number" />
+                        </div>
+
+                        <!-- Submit button -->
+                        <button type="submit" class="btn peach-gradient mb-4 rounded-pill">View</button>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="card shadow-sm">
+                <img src="./static/calender.png" class="d-block w-100" alt="..." width="500" height="400" />
+
+                <div class="card-body text-center">
+                    <h4>Flight Schedule</h4>
+                    <form class="form-signin w-100 my-3" action="#" method="POST">
+
+                        <!-- Input -->
+                        <div class="form-outline mb-2">
+                            <input type="text" name="flight_no" id="form2Example1" class="form-control"
+                                placeholder="Flight Number" />
+                        </div>
+
+                        <!-- Submit button -->
+                        <button type="submit" data-toggle="modal" data-target="#modalConfirmDelete"
+                            class="btn peach-gradient mb-4 rounded-pill">View</button>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card shadow-sm">
+                <img src="./static/credit-card.png" class="d-block w-100" alt="..." width="300" height="400">
+
+                <div class="card-body text-center">
+                    <h4>Transaction Details</h4>
+                    <form class="form-signin w-100 my-3" action="#" method="POST">
+
+                        <!-- Input -->
+                        <div class="form-outline mb-2">
+                            <input type="text" name="airline_id" id="form2Example1" class="form-control"
+                                placeholder="airline id" />
+                        </div>
+
+                        <div class="form-row">
+                            <!-- Grid column -->
+                            <div class="col-4 d-flex">
+                                <!-- Default input -->
+
+                                <input type="date" name ="start" class="form-control" placeholder="Start date">
+                            </div>
+                            <div class="col-4 d-flex ms-4">
+                                <!-- Default input -->
+ 
+                                <input type="date"  name="end" class="form-control" placeholder="End date">
+                            </div>
+
+                        </div>
+
+                        <!-- Submit button -->
+                        <button type="submit" class="btn peach-gradient mb-4 rounded-pill">View</button>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock body %}

@@ -1,0 +1,95 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+{% with messages=get_flashed_messages(with_categories=true) %}
+{% if messages %}
+{% for category, message in messages %}
+
+    <div class="alert alert-{{category}} alert-dismissible fade show" role="alert">
+        {{message}}
+
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+
+{% endfor %}
+{% endif %}
+{% endwith %}
+
+<div class="text-center">
+    <div class="container">
+        <div class="row h-100 justify-content-center align-items-center my-3">
+            <div class="col-10 col-md-8 col-lg-4 my-3">
+                <form class="form-signin w-100 my-5" action="/book" method="POST">
+                    <h3 class="mb-4"><u><strong>Booking Details</strong></u></h3>
+
+                    <!-- Input -->
+                    <div class="form-row mb-4">
+                        <div class="col-2">
+                            <!-- Default input -->
+                            <input type="text" class="form-control" placeholder="Mr" name="title" required>
+                          </div>
+
+                        <div class="col">
+                          <!-- Default input -->
+                          <input type="text" class="form-control" placeholder="First Name" name="first_name" required/>
+                        </div>
+
+                        <div class="col">
+                          <!-- Default input -->
+                          <input type="text" class="form-control" placeholder="Last Name" name="last_name" required/>
+                        </div>
+                      </div>
+
+                    <div class="row mb-4">
+                        <div class="col d-flex justify-content-center">
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="gender" id="inlineRadio1"
+                                    value="Male" />
+                                <label class="form-check-label" for="inlineRadio1">Male</label>
+                            </div>
+        
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="gender" id="inlineRadio2"
+                                    value="Female" />
+                                <label class="form-check-label" for="inlineRadio2">Female</label>
+                            </div>
+                        </div>
+                    </div>
+
+            <div class="form-outline mb-4">
+                <input type="email" id="form2Example1" class="form-control" placeholder="Email" name="email" required/>
+            </div>
+
+            <div class="form-outline mb-4">
+                <input type="date" id="form2Example2" class="form-control" placeholder="Date of Birth" name="dob" required/>
+            </div>
+
+            <div class="form-row mb-4">
+                <div class="col">
+                  <!-- Default input -->
+                  <input type="text" class="form-control" placeholder="Phone Number" name="contact_number" required/>
+                </div>
+            </div>
+
+            <div class="form-outline mb-4">
+                <input type="text" id="form2Example1" class="form-control" placeholder="Identity card id" name="identity_card_id" required/>
+            </div>
+
+            <div class="form-outline mb-4">
+                <input type="text" id="form2Example1" class="form-control" placeholder="Passenger type" name="passenger_type" required/>
+            </div>
+
+            <!-- 2 column grid layout for inline styling -->
+            <button type="submit" class="btn peach-gradient btn-block mb-4">Submit</button>
+            <!-- Submit button -->
+
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+
+{% endblock body %}

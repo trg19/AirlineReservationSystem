@@ -1,0 +1,246 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<style>
+    .card {
+        box-shadow: 0 20px 27px 0 rgb(0 0 0 / 5%);
+    }
+
+    .width-90 {
+        width: 90px !important;
+    }
+
+    .rounded-3 {
+        border-radius: 0.5rem !important;
+    }
+
+    a {
+        text-decoration: none;
+    }
+</style>
+{% endblock %}
+
+
+{% block body %}
+
+{% with messages=get_flashed_messages(with_categories=true) %}
+{% if messages %}
+{% for category, message in messages %}
+
+    <div class="alert alert-{{category}} alert-dismissible fade show" role="alert">
+        {{message}}
+
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+
+{% endfor %}
+{% endif %}
+{% endwith %}
+
+
+<div class="card" style="background-color:#1C2331">
+    <div class="text-white text-center rgba-stylish-strong py-5">
+        <div class="py-2">
+
+            <div class="container d-flex justify-content-center align-items-center">
+                <form class="form-inline" action="/search" method="POST">
+
+                  <!-- Default input -->
+                  <label class="sr-only" for="inlineFormInputGroupUsername2">Username</label>
+                  <div class="container d-flex justify-content-center align-items-center">
+                  <div class="input-group mb-2 mr-sm-2">
+                    <div class="input-group-prepend ">
+                      <div class="input-group-text"> <i class="fas fa-map-pin"></i></i></i></div>
+                    </div>
+
+                    <select class="browser-default custom-select" name="source" required/>
+                      <option value="">Source</option>
+                      <option value="Mumbai">Mumbai</option>
+                      <option value="Delhi">Delhi</option>
+                      <option value="Chennai">Chennai</option>
+                      <option value="Hyderabad">Hyderabad</option>
+                      <option value="Patna">Patna</option>
+                      <option value="Goa">Goa</option>
+                      <option value="Kolkata">Kolkata</option>
+                      <option value="Bengaluru">Bengaluru</option>
+                      <option value="New York">New York</option>
+                      <option value="London">London</option>
+                      <option value="Dubai">Dubai</option>
+                      <option value="Abu Dhabi">Abu Dhabi</option>
+                      <option value="Paris">Paris</option>
+                      <option value="Singapore">Singapore</option>
+                      <option value="Kathmandu">Kathmandu</option>
+                      <option value="Colombo">Colombo</option>
+                      <option value="Thiruvananthapuram">Thiruvananthapuram</option>
+                      <option value="Male">Male</option>
+                      <option value="Los Angeles">Los Angeles</option>
+                      <option value="Perth">Perth</option>
+                      <option value="Chicago">Chicago</option>
+                      <option value="Houston">Houston</option>
+                      <option value="Miami">Miami</option>
+                      <option value="Denver">Denver</option>
+                      <option value="Seattle">Seattle</option>
+                      <option value="Sydney">Sydney</option>
+                      <option value="Tokyo">Tokyo</option>
+                      <option value="Bangkok">Bangkok</option>
+        
+                    </select>
+                  </div>
+        
+                  <!-- Default input -->
+                  <label class="sr-only" for="inlineFormInputGroupUsername2">Username</label>
+                  <div class="input-group mb-2 mr-sm-2">
+                    <div class="input-group-prepend">
+                      <div class="input-group-text"> <i class="fas fa-map-pin"></i></i></i></div>
+                    </div>
+                    
+                    <select class="browser-default custom-select" name="destination" required/>
+                      <option value="">Destination</option>
+                      <option value="Mumbai">Mumbai</option>
+                      <option value="Delhi">Delhi</option>
+                      <option value="Chennai">Chennai</option>
+                      <option value="Hyderabad">Hyderabad</option>
+                      <option value="Patna">Patna</option>
+                      <option value="Goa">Goa</option>
+                      <option value="Kolkata">Kolkata</option>
+                      <option value="Bengaluru">Bengaluru</option>
+                      <option value="New York">New York</option>
+                      <option value="London">London</option>
+                      <option value="Dubai">Dubai</option>
+                      <option value="Abu Dhabi">Abu Dhabi</option>
+                      <option value="Paris">Paris</option>
+                      <option value="Singapore">Singapore</option>
+                      <option value="Kathmandu">Kathmandu</option>
+                      <option value="Colombo">Colombo</option>
+                      <option value="Thiruvananthapuram">Thiruvananthapuram</option>
+                      <option value="Male">Male</option>
+                      <option value="Los Angeles">Los Angeles</option>
+                      <option value="Perth">Perth</option>
+                      <option value="Chicago">Chicago</option>
+                      <option value="Houston">Houston</option>
+                      <option value="Miami">Miami</option>
+                      <option value="Denver">Denver</option>
+                      <option value="Seattle">Seattle</option>
+                      <option value="Sydney">Sydney</option>
+                      <option value="Tokyo">Tokyo</option>
+                      <option value="Bangkok">Bangkok</option>
+                    </select>
+                  </div>
+        
+                  <div class="input-group mb-2 mr-sm-2">
+                    <div class="input-group-prepend">
+                      <div class="input-group-text datepicker date"> <i class="far fa-calendar-alt"></i></i></div>
+                    </div>
+                    <input type="date" name="departure_date" class="form-control py-0" id="inlineFormInputGroupUsername2"
+                      placeholder="Departure Date" required/>
+                  </div></div>
+                  
+        
+                  <div class="container d-flex justify-content-center align-items-center">
+                  <div class="custom-control custom-radio custom-control-inline ps-2">
+                    <input type="radio" class="custom-control-input" id="defaultInline1" value="regular" name="passenger_type" checked>
+                    <label class="custom-control-label" for="defaultInline1">Regular</label>
+                  </div>
+        
+                  <!-- Default inline 2-->
+                  <div class="custom-control custom-radio custom-control-inline">
+                    <input type="radio" class="custom-control-input" id="defaultInline2" name="passenger_type" value="student">
+                    <label class="custom-control-label" for="defaultInline2">Student</label>
+                  </div>
+        
+                  <!-- Default inline 3-->
+                  <div class="custom-control custom-radio custom-control-inline">
+                    <input type="radio" class="custom-control-input" id="defaultInline3" value="senior_citizen" name="passenger_type">
+                    <label class="custom-control-label" for="defaultInline3">Senior Citizen</label>
+                  </div>
+        
+                  <div class="custom-control custom-radio custom-control-inline">
+                    <input type="radio" class="custom-control-input" id="defaultInline3" value="armed_force" name="passenger_type">
+                    <label class="custom-control-label" for="defaultInline3">Armed Forces</label>
+                  </div></div>
+        
+                  <div class="container d-flex justify-content-center align-items-center"><button type="submit" class="btn peach-gradient mt-4 rounded-pill"><i class="fas fa-search left"></i>Search</button></div>
+        
+                </form>
+              </div>
+        </div>
+    </div>
+</div>
+
+<div class="container mt-4 mb-2">
+    <div class="row">
+        <div class="col-xl-12">
+            <div class="card mb-3 card-body">
+                <div class="row align-items-center">
+                    <div class="col-1">
+                        <a href="#!.html">
+                            <img src="static/{{aid}}.jpg" width= "60px"class="width-90 rounded-3"
+                                alt="">
+                        </a>
+                    </div>
+                    <div class="col-1">
+                        <div class="overflow-hidden flex-nowrap">
+                            <h6 class="mb-1">
+                                <a href="#!" class="text-reset"><strong>{{airline_name}}</strong></a>
+                            </h6>
+                            <span class="text-muted d-block small">
+                                PNR: {{fid}}
+                            </span>
+                           
+                        </div>
+                    </div>
+
+                    <div class="col-7">
+                        <div class="row align-items-center">
+                            <div class="col-12">
+                                <div class="row align-items-center g-0">
+                                    <div class="col-auto">
+                                        <h5 class="font-weight-bolder me-2 mt-3">{{source}}</h5>
+                                        <h6 class="me-2 mt-3">{{atime}}</h6>
+
+                                        <span class="text-muted d-block small">
+                                            {{sid}}
+                                        </span>
+                                    </div>
+                                    
+                                    <div class="col" align="center">
+                                        <h5><span class="badge badge-primary">{{duration}}</span></h5>
+                                        <!-- Progress bar -->
+                                        <div class="progress bg-tint-success mb-4" style="height: 4px;">
+                                            <div class="progress-bar bg-primary" role="progressbar"
+                                                style="width: 100%;" aria-valuenow="65" aria-valuemin="0"
+                                                aria-valuemax="100"></div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-auto">
+                                        <h5 class="font-weight-bolder me-2 mt-3">{{destination}}</h5>
+                                        <h6 class="me-2 mt-3">{{dtime}}</h6>
+                                        <span class="text-muted d-block small">
+                                            {{did}}
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col">
+                        <div class="d-flex align-items-center justify-content-between">
+                            <h5>
+                                <span class="text-reset"><strong> Rs {{flight_cost}}</strong></span>
+                            </h5>
+                            <span class="text-muted d-block mb-2 small">
+                                <a href ="/book" class="btn peach-gradient rounded-pill">Book now</a>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock body %}
